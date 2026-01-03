@@ -38,6 +38,7 @@
     var z, scene, camera, skybox, renderer, ambientLight, light, controls, model, model1, helirunner, carmodel, count = 2, carmodel1, carmodel2, c, d , e;
     var container;
     var floor;
+    var allRobots = [];
 
 window.onload = function() {
               // load textures
@@ -854,16 +855,16 @@ s140.show(scene);
 s150.show(scene); 
 
 //create robots
-      all_robots = [];
+      allRobots = [];
       r = new Robot(0, -30, 0);
       r.show(scene);
-      all_robots.push(r);
+      allRobots.push(r);
       controller = {
         anaglyph: false,
         walk: function() {
          // body...
-          for (var r  in all_robots ){
-            r = all_robots[r];
+          for (var r  in allRobots ){
+            r = allRobots[r];
             r.walk();
           }
         },
@@ -918,7 +919,7 @@ s150.show(scene);
                                 intersects[0].point.y + 70,
                                 intersects[0].point.z);
             r.show(scene);
-            all_robots.push(r);
+            allRobots.push(r);
         }
     };
 
@@ -926,8 +927,8 @@ s150.show(scene);
     function animate() {
 
       requestAnimationFrame( animate );
-       for (r in all_robots) {
-        r = all_robots[r];
+       for (r in allRobots) {
+        r = allRobots[r];
         r.onAnimate();  
 
         }
@@ -948,6 +949,7 @@ s150.show(scene);
   </div>
 </body>
 </html>
+
 
 
 
