@@ -2,33 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+
   <style>
-    html, body { 
+    html, body {
       background-color:#000;
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden !important;  
+      overflow: hidden !important;
     }
   </style>
 
-<!-- Three.js core (creates global THREE) -->
-<script src="https://unpkg.com/three@0.104.0/build/three.min.js"></script>  <!-- THREE defined --> 
-<!-- Controls -->
-<script src="https://unpkg.com/three@0.104.0/examples/js/controls/TrackballControls.js"></script>
-<!-- Loaders you use -->
-<script src="https://unpkg.com/three@0.104.0/examples/js/loaders/OBJLoader.js"></script>
-<script src="https://unpkg.com/three@0.104.0/examples/js/loaders/MTLLoader.js"></script>
-<script src="https://unpkg.com/three@0.104.0/examples/js/loaders/TDSLoader.js"></script>
-<script src="https://unpkg.com/three@0.104.0/examples/js/loaders/DDSLoader.js"></script>
-<script src="https://unpkg.com/three@0.104.0/examples/js/loaders/FBXLoader.js"></script>
+  <!-- 1) three.js FIRST -->
+  <script src="https://unpkg.com/three@0.104.0/build/three.min.js"></script>
 
-<!-- Your scripts AFTER three.js -->
-<script src="robot.js"></script>
-<script src="signal.js"></script>
-<script src="lights.js"></script>
-<script src="helper.js"></script>
+  <!-- 2) addons AFTER -->
+  <script src="https://unpkg.com/three@0.104.0/examples/js/controls/TrackballControls.js"></script>
+  <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/MTLLoader.js"></script>
+  <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/TDSLoader.js"></script>
+  <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/DDSLoader.js"></script>
+  <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/FBXLoader.js"></script>
 
+  <!-- 3) your files -->
+  <script src="robot.js"></script>
+  <script src="signal.js"></script>
+  <script src="lights.js"></script>
+  <script src="helper.js"></script>
+
+  <!-- 4) your main code (ONLY JS here) -->
   <script>
 
     var z, scene, camera, skybox, renderer, ambientLight, light, controls, model, model1, helirunner, carmodel, count = 2, carmodel1, carmodel2, c, d , e;
@@ -920,12 +923,13 @@ s150.show(scene);
 </head>
 <body>
   <div style="visibility:hidden">
-    <video id="video" loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+    <!-- <video id="video" loop crossOrigin="anonymous" webkit-playsinline style="display:none">
       <source src="water.mov">
-    </video>
+    </video> -->
   </div>
 </body>
 </html>
+
 
 
 
