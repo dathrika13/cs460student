@@ -24,6 +24,7 @@
   <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/TDSLoader.js"></script>
   <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/DDSLoader.js"></script>
   <script src="https://unpkg.com/three@0.104.0/examples/js/loaders/FBXLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
 
   <!-- 3) your files -->
   <script src="robot.js"></script>
@@ -202,14 +203,21 @@ object2.traverse(function (child) {   // aka setTexture
   scene.add( object2 )
   } );
 //water
+// const video = document.getElementById('video');
+
+// window.addEventListener('click', () => {
+//   video.play().catch(()=>{});
+// }, { once: true });
+
+// var meshTexture = new THREE.VideoTexture( video );
 const video = document.getElementById('video');
-
-window.addEventListener('click', () => {
-  video.play().catch(()=>{});
-}, { once: true });
-
-var meshTexture = new THREE.VideoTexture( video );
-
+if (video) {
+  window.addEventListener('click', () => video.play().catch(()=>{}), { once: true });
+  var meshTexture = new THREE.VideoTexture(video);
+  // build your water mesh...
+} else {
+  console.warn("No #video element found; skipping water video texture");
+}
 var waterGeometry = new THREE.PlaneBufferGeometry( 100, 100 );
 var waterMaterial = new THREE.MeshBasicMaterial( {
   map: meshTexture,
@@ -867,13 +875,21 @@ s150.show(scene);
          runcar();
         }
       }
-      var gui = new dat.GUI();
-              //var rendering = gui.addFolder( "Rendering" );
-              //rendering.add( controller, 'anaglyph' );
-              //rendering.open();
-              var moving = gui.addFolder( "Movement" );
-              moving.add( controller, "walk");
-              moving.add(controller, "AnimateCity");
+      // var gui = new dat.GUI();
+      //         //var rendering = gui.addFolder( "Rendering" );
+      //         //rendering.add( controller, 'anaglyph' );
+      //         //rendering.open();
+      //         var moving = gui.addFolder( "Movement" );
+      //         moving.add( controller, "walk");
+      //         moving.add(controller, "AnimateCity");
+      if (window.dat && dat.GUI) {
+        var gui = new dat.GUI();
+        var moving = gui.addFolder("Movement");
+        moving.add(controller, "walk");
+        moving.add(controller, "AnimateCity");
+      } else {
+          console.warn("dat.gui not loaded; skipping GUI");
+        }
 
       renderer = new THREE.WebGLRenderer();
       renderer.setPixelRatio( window.devicePixelRatio );
@@ -932,6 +948,7 @@ s150.show(scene);
   </div>
 </body>
 </html>
+
 
 
 
