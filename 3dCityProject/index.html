@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <style>
@@ -71,7 +73,7 @@ window.onload = function() {
       fillLight.position.set(100, 0, 100);
 
       var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-      backLight.position.set(100, 0, -100).normalize;
+      backLight.position.set(100, 0, -100).normalize();
 
       scene.add(keyLight);
       scene.add(fillLight);
@@ -689,8 +691,8 @@ loader.load('Models/1.obj', function (objectcar1) {
     var loader = new THREE.OBJLoader( );
 
 
-    loader.setResourcePath( '/Models/' );
-    loader.load( 'Models/1.obj', function ( object ) {
+    loader.setResourcePath('Models/');
+loader.load('1.obj', function ( object ) {
       object.traverse( function ( child ) {
         object.scale.set(0.002, 0.002, 0.002);
         object.position.y = -100;
@@ -783,7 +785,7 @@ s11 = new lights(5200, -100, -2500);
 s12  = new lights(-1500, -100, 4000);
 s13  = new lights(-1500, -100, 5000);
 s14  = new lights(-400, -100, 4000);
-s15  = new lights(18-0, -100, 4000);
+s15  = new lights(1800, -100, 4000);
 //block 5
 s0  = new lights(-400, -100, -1500);
 s10 = new lights(-400, -100, 300);
@@ -920,10 +922,9 @@ s150.show(scene);
 </head>
 <body>
   <div style="visibility:hidden">
-  <video id="video" loop crossOrigin="anonymous" webkit-playsinline style="display:none">
-    <source src="water.mov" >
-  </video>
-
-
+    <video id="video" loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+      <source src="water.mov">
+    </video>
+  </div>
 </body>
 </html>
