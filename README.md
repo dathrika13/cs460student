@@ -1,104 +1,105 @@
-# 3D Interactive City
+# CS460 – Computer Graphics
 
-A browser-based 3D interactive city scene built with Three.js and WebGL, featuring dynamic animations, interactive elements, and a fully explorable environment.
+Coursework repository for **CS460: Computer Graphics** at the University of Massachusetts Boston (Fall 2022).
 
-**[Live Demo](https://dathrika13.github.io/cs460student/3dCityProject/)**
+These projects explore interactive, browser-based 3D graphics and visualizations using WebGL and Three.js — covering transformations, camera controls, materials, texture mapping, lighting, and animation.
 
 ---
 
-## Overview
+## Course Information
 
-This project renders a 3D city environment complete with buildings, vehicles, terrain, and interactive robots. Users can navigate the scene, spawn objects, and control animations through an intuitive interface.
+| | |
+|---|---|
+| **University** | University of Massachusetts Boston |
+| **Course** | CS460 – Computer Graphics |
+| **Term** | Fall 2022 |
+| **Prerequisites** | CS 310, Math 260 |
+| **Course Site** | [cs460.org](https://cs460.org) |
 
-## Features
+---
 
-- **Immersive Environment** — Skybox backdrop with textured ground plane representing city roads
-- **3D Models** — Buildings, trees, stadium, helicopter, cars, and mountains loaded via OBJ/MTL
-- **Interactive Robots** — Click to spawn robots that walk and navigate around obstacles
-- **Animated Elements** — Cars drive along roads, helicopter flies across the scene
-- **Dynamic Lighting** — Procedurally generated street lights throughout the city
+## Live Demos
+
+All assignments are hosted via GitHub Pages:
+
+| Assignment | Demo Link |
+|------------|-----------|
+| Assignment 01 | [View Demo](https://dathrika13.github.io/cs460student/01/index.html) |
+| Assignment 02 | [View Demo](https://dathrika13.github.io/cs460student/02/index.html) |
+| Assignment 03 | [View Demo](https://dathrika13.github.io/cs460student/03/index.html) |
+| Assignment 04 | [View Demo](https://dathrika13.github.io/cs460student/04/index.html) |
+| Assignment 05 | [View Demo](https://dathrika13.github.io/cs460student/05/index.html) |
+| Assignment 06 | [View Demo](https://dathrika13.github.io/cs460student/06/index.html) |
+| Assignment 07 | [View Demo](https://dathrika13.github.io/cs460student/07/index.html) |
+| Assignment 08 | [View Demo](https://dathrika13.github.io/cs460student/08/index.html) |
+| Assignment 09 | [View Demo](https://dathrika13.github.io/cs460student/09/index.html) |
+| **Final Project** | [**3D Interactive City**](https://dathrika13.github.io/cs460student/3dCityProject/) |
+
+---
+
+## Final Project: 3D Interactive City
+
+A fully animated 3D city scene built with Three.js featuring:
+
+- Multiple imported OBJ models (buildings, vehicles, terrain)
+- Skybox environment and textured surfaces
+- Animated cars driving along roads
+- Helicopter flying across the scene
+- Interactive robots that walk and navigate obstacles
+- Real-time controls via dat.GUI
+
+> **Note:** Video textures require running via a local web server rather than opening files directly.
+
+---
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Three.js (r104) | 3D rendering engine |
-| WebGL | Hardware-accelerated graphics |
-| TrackballControls | Camera navigation |
-| OBJLoader / MTLLoader | 3D model importing |
-| dat.gui | Runtime UI controls |
+| Technology | Usage |
+|------------|-------|
+| JavaScript | Core programming language |
+| WebGL | Hardware-accelerated 3D rendering |
+| Three.js | 3D graphics library |
+| OBJ/MTL Loaders | 3D model importing |
+| dat.GUI | Interactive runtime controls |
 
-## Controls
+---
 
-| Input | Action |
-|-------|--------|
-| Mouse drag | Rotate camera |
-| Scroll wheel | Zoom in/out |
-| Right-click drag | Pan view |
-| Shift + Click | Spawn robot at location |
+## Running Locally
 
-### GUI Options
-- `walk` — Start robot walking behavior
-- `AnimateCity` — Trigger vehicle and helicopter animations
+Some browsers block textures, video, and audio when opened via `file://`. Use a local server instead.
 
-## Getting Started
-
-### Prerequisites
-A local web server is required. Opening `index.html` directly via `file://` may cause asset loading issues.
-
-### Option 1: Python Server
+### Python
 ```bash
-cd project-root
 python3 -m http.server 8000
 ```
-Then navigate to `http://localhost:8000/3dCityProject/index.html`
 
-### Option 2: VS Code Live Server
-1. Install the **Live Server** extension
-2. Right-click `index.html` → **Open with Live Server**
-
-## Project Structure
-
-```
-3dCityProject/
-├── index.html              # Main entry point
-├── helper.js               # Procedural mesh helpers
-├── robot.js                # Robot creation & animation
-├── lights.js               # Street light objects
-├── signal.js               # Signal/utility logic
-├── Models/                 # Car models & textures
-├── UH60/                   # Helicopter model
-├── everest/                # Mountain terrain
-├── apartment01-03/         # Building models
-├── Stadium/                # Stadium model
-├── amphitheater/           # Amphitheater model
-└── textures/               # Road, brick, skybox textures
+### Node.js
+```bash
+npx http-server -p 8000
 ```
 
-## Troubleshooting
+Then navigate to:
+```
+http://localhost:8000/01/index.html
+http://localhost:8000/3dCityProject/
+```
 
-| Issue | Solution |
-|-------|----------|
-| Blank screen | Check console for errors; ensure dat.gui loads before main script |
-| `dat is not defined` | Add dat.gui CDN before your scripts |
-| `geometry.setAttribute` error | Three.js r104 uses `addAttribute()` instead |
-| `allRobots is not defined` | Add `window.allRobots = all_robots;` after array declaration |
-| 404 errors on assets | Verify exact file paths and case sensitivity |
+---
 
-## Deployment
+## Repository Structure
 
-This project deploys seamlessly to GitHub Pages as static HTML/JS.
+```
+cs460student/
+├── 01/ - 09/           # Course assignments
+├── 3dCityProject/      # Final project
+└── README.md
+```
 
-**Notes:**
-- Use relative paths for all assets
-- Maintain consistent file/folder casing (GitHub Pages is case-sensitive)
-- Verify asset paths after any structural changes
+> Keep assets inside their respective folders to ensure GitHub Pages loads them correctly.
 
-## Credits
+---
 
-- [Three.js](https://threejs.org/) — 3D library and example loaders
-- Third-party OBJ models and textures used for educational purposes
+## References
 
-## License
-
-This project is for educational purposes.
+- [Three.js Documentation](https://threejs.org/docs/)
+- [CS460 Course Site](https://cs460.org)
