@@ -202,8 +202,11 @@ object2.traverse(function (child) {   // aka setTexture
   scene.add( object2 )
   } );
 //water
-var video = document.getElementById('video');
-video.play();
+const video = document.getElementById('video');
+
+window.addEventListener('click', () => {
+  video.play().catch(()=>{});
+}, { once: true });
 
 var meshTexture = new THREE.VideoTexture( video );
 
@@ -692,7 +695,7 @@ loader.load('Models/1.obj', function (objectcar1) {
     var loader = new THREE.OBJLoader( );
 
 
-    loader.setResourcePath('Models/');
+    loader.setPath('Models/');
 loader.load('1.obj', function ( object ) {
       object.traverse( function ( child ) {
         object.scale.set(0.002, 0.002, 0.002);
@@ -929,6 +932,7 @@ s150.show(scene);
   </div>
 </body>
 </html>
+
 
 
 
