@@ -48,8 +48,15 @@ HELPER.cylinderSkeletonMesh = function(howmany, howwide, color) {
 
   }
 
-  geometry.setAttribute( 'skinIndex', new THREE.Uint16BufferAttribute( skinIndices, 4 ) );
-  geometry.setAttribute( 'skinWeight', new THREE.Float32BufferAttribute( skinWeights, 4 ) );
+  geometry.addAttribute(
+  'skinIndex',
+  new THREE.BufferAttribute(new Uint16Array(skinIndices), 4)
+);
+geometry.addAttribute(
+  'skinWeight',
+  new THREE.BufferAttribute(new Float32Array(skinWeights), 4)
+);
+
 
   // step 2: setup material
   var material = new THREE.MeshStandardMaterial( {
@@ -79,5 +86,6 @@ HELPER.cylinderSkeletonMesh = function(howmany, howwide, color) {
   }
 
   return [geometry, material, bones];
+
 
 };
